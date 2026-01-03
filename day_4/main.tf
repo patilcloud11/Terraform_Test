@@ -1,8 +1,21 @@
-resource "aws_instance" "name" {
+resource "aws_instance" "day4" {
   ami = "ami-068c0051b15cdb816"
   instance_type = "t3.micro"
 
   tags = {
-    name = "dev"
+    Name = "dev"
+  }
+}
+
+resource "aws_s3_bucket" "tfstate" {
+  bucket = "test-terraform-vishesh"
+  
+}
+
+resource "aws_s3_bucket_versioning" "versioning" {
+  bucket = "test-terraform-vishesh"
+  
+  versioning_configuration {
+    status = "Enabled"
   }
 }
