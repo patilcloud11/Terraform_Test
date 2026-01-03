@@ -9,13 +9,17 @@ resource "aws_instance" "day4" {
 
 resource "aws_s3_bucket" "tfstate" {
   bucket = "test-terraform-vishesh"
-  
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_versioning" "versioning" {
   bucket = "test-terraform-vishesh"
   
+  
   versioning_configuration {
-    status = "Enabled"
+    status = "Suspended"
+    
   }
+  
 }
+
