@@ -5,6 +5,6 @@ terraform {
     region = "us-east-1"
     
     dynamodb_table = "dbtable"
-    
+    use_lockfile = true
   }
 }
