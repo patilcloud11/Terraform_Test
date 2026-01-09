@@ -29,8 +29,9 @@ resource "aws_iam_policy_attachment" "lambda_role" {
 
 resource "aws_iam_policy" "lambda_policy" {
   name = "lambda_policy"
-  policy = jsonencode(
-[
+  policy = jsonencode({
+	"Version": "2012-10-17",
+	"Statement": [
 		{
 			"Sid": "Statement1",
 			"Effect": "Allow",
@@ -42,6 +43,8 @@ resource "aws_iam_policy" "lambda_policy" {
 			]
 		}
 	]
+})
+
 }
 
 resource "aws_lambda_function" "lambda_vishesh" {
